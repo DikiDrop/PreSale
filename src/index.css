@@ -1,0 +1,122 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* DikiDrop Inspired Theme - Light Mode */
+    --background: 210 40% 98%; /* Light cool gray */
+    --foreground: 215 25% 20%; /* Dark blue-gray */
+    
+    --card: 0 0% 100%; /* White */
+    --card-foreground: 215 25% 20%; /* Dark blue-gray */
+    
+    --popover: 0 0% 100%; /* White */
+    --popover-foreground: 215 25% 20%; /* Dark blue-gray */
+    
+    --primary: 170 85% 45%; /* Vibrant Teal/Green */
+    --primary-foreground: 0 0% 100%; /* White */
+    
+    --secondary: 340 90% 60%; /* Vibrant Pink */
+    --secondary-foreground: 0 0% 100%; /* White */
+    
+    --muted: 210 40% 94%; /* Lighter cool gray */
+    --muted-foreground: 215 15% 55%; /* Medium gray */
+    
+    --accent: 175 80% 65%; /* Lighter Teal/Aqua */
+    --accent-foreground: 215 25% 20%; /* Dark blue-gray */
+    
+    --destructive: 0 84% 60%; /* Red */
+    --destructive-foreground: 0 0% 100%; /* White */
+    
+    --border: 210 20% 88%; /* Light gray border */
+    --input: 210 30% 96%; /* Very light gray input bg */
+    --ring: 170 85% 50%; /* Slightly darker Teal for focus rings */
+    
+    --radius: 0.75rem;
+  }
+ 
+  /* Optional Dark Mode (can be activated via class="dark" on html/body) */
+  .dark {
+    --background: 215 30% 15%; /* Dark blue-gray */
+    --foreground: 210 40% 95%; /* Light cool gray */
+    
+    --card: 215 28% 19%; /* Slightly lighter dark */
+    --card-foreground: 210 40% 95%; /* Light cool gray */
+    
+    --popover: 215 28% 19%; /* Slightly lighter dark */
+    --popover-foreground: 210 40% 95%; /* Light cool gray */
+    
+    --primary: 170 80% 55%; /* Vibrant Teal/Green */
+    --primary-foreground: 215 25% 15%; /* Darker background color */
+    
+    --secondary: 340 85% 65%; /* Vibrant Pink */
+    --secondary-foreground: 215 25% 15%; /* Darker background color */
+    
+    --muted: 215 25% 25%; /* Darker gray */
+    --muted-foreground: 210 20% 65%; /* Lighter gray */
+    
+    --accent: 175 75% 50%; /* Muted Teal/Aqua */
+    --accent-foreground: 210 40% 95%; /* Light cool gray */
+    
+    --destructive: 0 70% 55%; /* Red */
+    --destructive-foreground: 0 0% 100%; /* White */
+    
+    --border: 215 20% 30%; /* Darker gray border */
+    --input: 215 25% 22%; /* Darker input bg */
+    --ring: 170 80% 60%; /* Slightly lighter Teal for focus rings */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    /* Apply a subtle gradient background */
+    @apply bg-gradient-to-br from-background via-blue-50 to-teal-50;
+  }
+}
+
+.gradient-text-primary {
+  @apply text-transparent bg-clip-text bg-gradient-to-r from-primary to-teal-400;
+}
+
+.gradient-text-secondary {
+  @apply text-transparent bg-clip-text bg-gradient-to-r from-secondary to-pink-400;
+}
+
+.header-gradient-bg {
+  background: linear-gradient(135deg, hsl(var(--primary) / 0.9) 0%, hsl(var(--accent) / 0.9) 100%);
+  @apply text-primary-foreground;
+}
+
+.card-header-gradient-bg {
+   background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
+   @apply text-primary-foreground;
+}
+
+.button-primary-gradient {
+  background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
+  @apply text-primary-foreground hover:opacity-90 transition-opacity;
+}
+
+.button-secondary-gradient {
+  background: linear-gradient(135deg, hsl(var(--secondary)) 0%, hsl(var(--accent) / 0.8)) 100%);
+  @apply text-secondary-foreground hover:opacity-90 transition-opacity;
+}
+
+.token-counter {
+  font-variant-numeric: tabular-nums;
+}
+
+.floating {
+  animation: float 3s ease-in-out infinite;
+}
+
+.pulse-glow-button {
+  animation: pulse-glow 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
